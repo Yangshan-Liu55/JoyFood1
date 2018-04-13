@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "908247748580",
+    "firebase_url": "https://joyfood-database.firebaseio.com",
+    "project_id": "joyfood-database",
+    "storage_bucket": "joyfood-database.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:908247748580:android:a478f34b0e3e0dda",
+        "android_client_info": {
+          "package_name": "com.example.shan.joyfood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "908247748580-18ejo2c4g7gjldnsrqlvp5slep5rph18.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shan.joyfood",
+            "certificate_hash": "64e751360eff267055ede8c1bb19cc1d6bc50ff6"
+          }
+        },
+        {
+          "client_id": "908247748580-3dr1l1m4g1h40fiscis3d0jnbkq6nrbb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwlm5EXV5DgAAakegYQDSTym0oYLkTsDo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "908247748580-3dr1l1m4g1h40fiscis3d0jnbkq6nrbb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
