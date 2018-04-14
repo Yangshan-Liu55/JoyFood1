@@ -15,7 +15,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
             android:paddingLeft="@dimen/activity_main"
@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:textSize="25dip"
+                android:textSize="25sp"
                 android:textColor="@color/colorAccent"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -58,7 +58,8 @@
                 android:id="@+id/image_show"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="image"/>
+                android:text="image"
+                android:contentDescription="Post's image"/>
 
             <TextView
                 android:id="@+id/textView_text"
@@ -67,7 +68,7 @@
                 android:text="text"
                 android:layout_marginTop="10dip"
                 android:layout_marginBottom="10dip"
-                android:textSize="18dip"
+                android:textSize="18sp"
                 android:textColor="@android:color/black"/>
 
             <View
@@ -82,7 +83,7 @@
                 android:text="Ingredient:"
                 android:textColor="@color/text_show"
                 android:textStyle="italic"
-                android:textSize="18dip"/>
+                android:textSize="18sp"/>
             <TextView
                 android:id="@+id/textView_ingredient"
                 android:layout_width="match_parent"
@@ -103,7 +104,7 @@
                 android:text="Direction:"
                 android:textColor="@color/text_show"
                 android:textStyle="italic"
-                android:textSize="18dip"/>
+                android:textSize="18sp"/>
             <TextView
                 android:id="@+id/textView_direction"
                 android:layout_width="match_parent"
@@ -133,7 +134,7 @@
 
         <Button
             android:id="@+id/btn_post_to_login"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:background="@null"
@@ -145,6 +146,7 @@
             android:id="@+id/imgBtnDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="Delete image button"
             app:srcCompat="@drawable/ic_delete_forever_black_24dp"/>
 
 
@@ -153,6 +155,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
+            android:contentDescription="Show comment layout button"
             app:srcCompat="@drawable/ic_message_black_24dp"/>
     </LinearLayout>
 

@@ -91,22 +91,27 @@ public class PostShow extends BaseActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user1 = firebaseAuth.getCurrentUser();
-                String userEmail = user1.getEmail().toString();
-                String currentUserName = userEmail.substring(0, userEmail.indexOf("@"));
-                if (user1 == null) {
+                if (user1 != null) {
+                    String userEmail = user1.getEmail().toString();
+                    String currentUserName = userEmail.substring(0, userEmail.indexOf("@"));
+
+                    if (post_user.equals(currentUserName)){
+                        btn_post_to_login.setVisibility(View.GONE);
+                        btn_delete.setVisibility(View.VISIBLE);
+                        imgBtnMsg.setVisibility(View.VISIBLE);
+                    }
+                    else {
+                        btn_post_to_login.setVisibility(View.GONE);
+                        btn_delete.setVisibility(View.GONE);
+                        imgBtnMsg.setVisibility(View.VISIBLE);
+                    }
+                }
+                else {
+                    edit_bar_layout.setVisibility(View.VISIBLE);
                     btn_post_to_login.setVisibility(View.VISIBLE);
                     btn_delete.setVisibility(View.GONE);
                     imgBtnMsg.setVisibility(View.GONE);
-                }
-                else if (!post_user.equals(currentUserName)){
-                    btn_post_to_login.setVisibility(View.GONE);
-                    btn_delete.setVisibility(View.GONE);
-                    imgBtnMsg.setVisibility(View.VISIBLE);
-                }
-                else {
-                    btn_post_to_login.setVisibility(View.GONE);
-                    btn_delete.setVisibility(View.VISIBLE);
-                    imgBtnMsg.setVisibility(View.VISIBLE);
+                    layoutMsg.setVisibility(View.GONE);
                 }
             }
         };
@@ -182,6 +187,14 @@ public class PostShow extends BaseActivity {
         //image_show.setImageResource(R.drawable.pasta); //glide with url into imgView insteads
         Glide.with(PostShow.this).load(post_imageUrl).into(image_show); //below insteads
 
+        //Go to LOG IN
+        btn_post_to_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PostShow.this, LoginActivity.class));
+                finish();
+            }
+        });
 
         //Show comment view/message linear layout
         imgBtnMsg.setOnClickListener(new View.OnClickListener() {
