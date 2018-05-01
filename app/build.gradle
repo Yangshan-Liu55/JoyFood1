@@ -52,7 +52,7 @@ dependencies {
     //compile 'com.githang:status-bar-compat:latest.integration'
     //implementation 'com.android.support:design:28.0.0-alpha1' //只能26版本
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    
+
 }
 
 apply plugin: 'com.google.gms.google-services'

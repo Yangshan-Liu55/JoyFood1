@@ -113,7 +113,6 @@ public class NewPostFragment extends Fragment {
         btn_addPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 //check if entered name
                 String postName = editText_name.getText().toString();
                 if (!postName.trim().equals("")) {
@@ -161,8 +160,9 @@ public class NewPostFragment extends Fragment {
             }
         }
     }
+    //end chooseImg() method
 
-    //this method will upload the file
+    //this method will upload the file to Firebase
     private void uploadImg(String postName) {
         final String name = postName;
 
@@ -223,7 +223,7 @@ public class NewPostFragment extends Fragment {
         contentRef.updateChildren(map); //Update the contentID in database(postContent)
 
         //Add several children to the random key content
-        DatabaseReference post_rootRef = contentRef.child(temp_key);
+        DatabaseReference postRef = contentRef.child(temp_key);
         Map<String,Object> map2 = new HashMap<String, Object>();
         map2.put("user", userName);
         map2.put("name", name);
@@ -233,7 +233,7 @@ public class NewPostFragment extends Fragment {
         map2.put("ingredient", editText_ingredient.getText().toString());
         map2.put("direction", editText_direction.getText().toString());
         map2.put("postID", temp_key);//post ID
-        post_rootRef.updateChildren(map2); //Update the data to postID under postContent
+        postRef.updateChildren(map2); //Update the data to postID under postContent
 
         //save the postID under postComment too
         Map<String, Object> map3 = new HashMap<String, Object>();

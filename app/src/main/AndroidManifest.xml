@@ -6,7 +6,6 @@
     //For allow alert dialog showed on top of activity,
     // must set your phone: Settings->Apps->JoyFood->Draw over other apps
     // allow the permission SYSTEM_ALERT_WINDOW
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -54,6 +53,8 @@
                 <action android:name="com.example.shan.joyfood.FORCE_OFFLINE" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".PostEdit"></activity>
     </application>
 
 </manifest>

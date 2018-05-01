@@ -91,12 +91,12 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                append_post(dataSnapshot);
+                modify_post(dataSnapshot);
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-                romove_post(dataSnapshot);
+                remove_post(dataSnapshot);
 
             }
 
@@ -141,13 +141,42 @@ public class HomeFragment extends Fragment {
         adapter.notifyDataSetChanged();
     }
 
-    private void romove_post(DataSnapshot dataSnapshot) {
+    private void remove_post(DataSnapshot dataSnapshot) {
         String temp_postID = dataSnapshot.getKey();
         if (postIdList.contains(temp_postID)) {
-            int romove_position = postIdList.indexOf(temp_postID);
+            int remove_position = postIdList.indexOf(temp_postID);
 
-            postIdList.remove(romove_position);
-            postList.remove(romove_position);
+            postIdList.remove(remove_position);
+            postList.remove(remove_position);
+
+            adapter.notifyDataSetChanged();
+        }
+    }
+
+    private void modify_post(DataSnapshot dataSnapshot){
+        String temp_postID = dataSnapshot.getKey();
+        if (postIdList.contains(temp_postID)) {
+            int modify_position = postIdList.indexOf(temp_postID);
+            Post modify_post = postList.get(modify_position);
+
+            Iterator iterator = dataSnapshot.getChildren().iterator();
+            while (iterator.hasNext()) {
+                post_direction = (String) ((DataSnapshot)iterator.next()).getValue(); //direction
+                post_imageUrl = (String) ((DataSnapshot)iterator.next()).getValue(); //imageUrl is String
+                post_ingredient = (String) ((DataSnapshot)iterator.next()).getValue();//ingredient
+                post_name = (String) ((DataSnapshot)iterator.next()).getValue();//name
+                post_ID  = (String) ((DataSnapshot)iterator.next()).getValue();//postID
+                post_text = (String) ((DataSnapshot)iterator.next()).getValue();//text
+                post_time = (String) ((DataSnapshot)iterator.next()).getValue(); //time when posted
+                post_user = (String) ((DataSnapshot)iterator.next()).getValue();//user
+
+                modify_post.setName(post_name);
+                modify_post.setText(post_text);
+                modify_post.setImageUrl(post_imageUrl);
+                modify_post.setIngredient(post_ingredient);
+                modify_post.setDirection(post_direction);
+
+            }
 
             adapter.notifyDataSetChanged();
         }

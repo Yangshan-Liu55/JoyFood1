@@ -51,8 +51,7 @@ public class PostShow extends BaseActivity {
 
     private String post_user, post_name, post_time, post_imageUrl, post_text, post_ingredient, post_direction, post_ID;
     private String userName;
-    private ImageButton btn_send_msg;
-    private ImageButton btn_delete, imgBtnMsg;
+    private ImageButton btn_send_msg, btn_modify, btn_delete, imgBtnMsg;
     private ImageView image_show;
     private Bitmap bp;
     private final int SUCCESS = 0;
@@ -92,16 +91,19 @@ public class PostShow extends BaseActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user1 = firebaseAuth.getCurrentUser();
                 if (user1 != null) {
+         //如果user为null 则无法获取String userEmail，系统bug出现app crash。所以下面这两句只能放在if函数里
                     String userEmail = user1.getEmail().toString();
                     String currentUserName = userEmail.substring(0, userEmail.indexOf("@"));
 
                     if (post_user.equals(currentUserName)){
                         btn_post_to_login.setVisibility(View.GONE);
+                        btn_modify.setVisibility(View.VISIBLE);
                         btn_delete.setVisibility(View.VISIBLE);
                         imgBtnMsg.setVisibility(View.VISIBLE);
                     }
                     else {
                         btn_post_to_login.setVisibility(View.GONE);
+                        btn_modify.setVisibility(View.GONE);
                         btn_delete.setVisibility(View.GONE);
                         imgBtnMsg.setVisibility(View.VISIBLE);
                     }
@@ -109,6 +111,7 @@ public class PostShow extends BaseActivity {
                 else {
                     edit_bar_layout.setVisibility(View.VISIBLE);
                     btn_post_to_login.setVisibility(View.VISIBLE);
+                    btn_modify.setVisibility(View.GONE);
                     btn_delete.setVisibility(View.GONE);
                     imgBtnMsg.setVisibility(View.GONE);
                     layoutMsg.setVisibility(View.GONE);
@@ -124,8 +127,26 @@ public class PostShow extends BaseActivity {
         TextView textView_text = (TextView)findViewById(R.id.textView_text);
         TextView textView_ingredient = (TextView)findViewById(R.id.textView_ingredient);
         TextView textView_direction = (TextView)findViewById(R.id.textView_direction);
+        btn_modify  = (ImageButton)findViewById(R.id.imgBtnModify);
         btn_delete = (ImageButton)findViewById(R.id.imgBtnDelete);
 
+        //go to modify the post activity
+        btn_modify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PostShow.this, PostEdit.class);
+                intent.putExtra("user", post_user);
+                intent.putExtra("name", post_name);
+                intent.putExtra("time", post_time);
+                intent.putExtra("imageUrl", post_imageUrl); //imageID/imageUrl in firebase database
+                intent.putExtra("text", post_text);
+                intent.putExtra("ingredient", post_ingredient);
+                intent.putExtra("direction", post_direction);
+                intent.putExtra("posID", post_ID);
+
+                startActivity(intent);
+            }
+        });
 
         //delete the post data in database and storage
         rootReference = FirebaseDatabase.getInstance().getReference().getRoot();
