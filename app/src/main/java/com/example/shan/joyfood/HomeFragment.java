@@ -136,7 +136,7 @@ public class HomeFragment extends Fragment {
 
             }
 
-        }                   //Go back to addChildEventListener,(next dataSnapshot - randomkey post)
+        }                //Go back to addChildEventListener,(next dataSnapshot - randomkey post)
 
         adapter.notifyDataSetChanged();
     }
