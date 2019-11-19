@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.shan.joyfood">
+    package="com.liu55.shan.joyfood">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    //For allow alert dialog showed on top of activity,
-    // must set your phone: Settings->Apps->JoyFood->Draw over other apps
-    // allow the permission SYSTEM_ALERT_WINDOW
+    <!-- For allow alert dialog showed on top of activity,
+     must set your phone: Settings->Apps->JoyFood->Draw over other apps
+     allow the permission SYSTEM_ALERT_WINDOW -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -31,7 +31,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.liu55.shan.joyfood.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask">
             <intent-filter>
@@ -40,21 +40,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PostShow" />
+        <activity android:name="com.liu55.shan.joyfood.PostShow" />
         <activity
-            android:name=".LoginActivity"
+            android:name="com.liu55.shan.joyfood.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity
-            android:name=".SignUpActivity"
+            android:name="com.liu55.shan.joyfood.SignUpActivity"
             android:label="@string/title_activity_sighup" />
 
-        <receiver android:name=".ForeceOffLineReceiver">
+        <receiver android:name="com.liu55.shan.joyfood.ForeceOffLineReceiver">
             <intent-filter>
-                <action android:name="com.example.shan.joyfood.FORCE_OFFLINE" />
+                <action android:name="com.liu55.shan.joyfood.FORCE_OFFLINE" />
             </intent-filter>
         </receiver>
 
-        <activity android:name=".PostEdit"></activity>
+        <activity android:name="com.liu55.shan.joyfood.PostEdit"></activity>
     </application>
 
 </manifest>

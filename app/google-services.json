@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:908247748580:android:a478f34b0e3e0dda",
         "android_client_info": {
-          "package_name": "com.example.shan.joyfood"
+          "package_name": "com.liu55.shan.joyfood"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "908247748580-18ejo2c4g7gjldnsrqlvp5slep5rph18.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.shan.joyfood",
+            "package_name": "com.liu55.shan.joyfood",
             "certificate_hash": "64e751360eff267055ede8c1bb19cc1d6bc50ff6"
           }
         },
